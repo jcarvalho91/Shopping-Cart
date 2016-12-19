@@ -20,13 +20,9 @@ public class Bag extends Price implements ShoppingBag {
 
 	// Prompt user to enter it's name
 	public void setName(String name) {
-
 		System.out.println("\n\nWhat's Your Name?");
-
 		name = input.nextLine();
-
 		name = name.replaceAll("\\d", ""); // regex - remove any numbers from a name
-
 		newName = name;
 	}
 
@@ -39,24 +35,16 @@ public class Bag extends Price implements ShoppingBag {
 
 	@SuppressWarnings("static-access")
 	public void addProduct() {
-
 		Bag item = new Bag();
-
 		System.out.println("Hello! " + getName() + "," + " Let's Go Shopping");
-
 		double total = getBankAccount();
 
 		// Loop until the sum of bagPrice is valued below $58.00
 		while (sum(bagPrice) <= 58.00 && total > 0.00) {
-
 			System.out.println();
-
 			System.out.println("Choose a Priority");
-
 			item.choice = input.nextInt();
-
 			System.out.println("Choose a Quantity");
-
 			quantity = input.nextInt();
 
 			/*
@@ -75,8 +63,7 @@ public class Bag extends Price implements ShoppingBag {
 				// System.out.println(newProduct.get(7));
 
 				// format prices to show with 2 decimal places
-				System.out
-						.print("\tITEM PRICE: " + "$ " + Double.valueOf(formatter.format(price.get(item.choice - 1))));
+				System.out.print("\tITEM PRICE: " + "$ " + Double.valueOf(formatter.format(price.get(item.choice - 1))));
 
 				// (item.choice - 1) is to ensure that fist price in the array
 				// starts at Index 0
@@ -107,15 +94,11 @@ public class Bag extends Price implements ShoppingBag {
 	// Calculated the total sum of an array. Used with bagPrice() array list
 
 	public double sum(List<Double> bagPrice) {
-
 		double sum = 0.00;
-
 		for (double s : bagPrice)
-
 			sum = sum + s;
-
-		return sum;
-	}
+			return sum;
+		}
 
 	/**
 	 * Print items that have not been purchase Source:
@@ -131,9 +114,7 @@ public class Bag extends Price implements ShoppingBag {
 
 		// instantiate in order to get correct values in missingItems array
 		Bag b = new Bag();
-
 		b.missingItems.removeAll(b.cart);
-
 		System.out.println("\nItems Not Purchased: " + b.missingItems);
 
 	}
